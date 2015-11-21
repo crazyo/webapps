@@ -1,0 +1,19 @@
+{% extends "_root.html" %}
+{% load staticfiles %}
+
+{% block mystyle %}
+{# keep this order! #}
+<link rel="stylesheet" href="{% static 'feed/css/_reset_.css' %}">
+<link rel="stylesheet" href="{% static 'feed/css/_style_.css' %}">
+<script src="{% static 'feed/js/_modernizr_.js' %}"></script>
+{% endblock mystyle %}
+
+{% block myscript %}
+<script src="{% static 'feed/js/_main_.js' %}"></script>
+{% endblock myscript %}
+
+{% block body %}
+
+    {% include 'feed/_feed.html' %}
+
+{% endblock body %}
