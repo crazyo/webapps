@@ -3,6 +3,7 @@
 
 {% block mystyle %}
 {# keep this order! #}
+<link rel="stylesheet" href="{% static 'home/css/home.css' %}">
 <link rel="stylesheet" href="{% static 'feed/css/_reset_.css' %}">
 <link rel="stylesheet" href="{% static 'feed/css/_style_.css' %}">
 <script src="{% static 'feed/js/_modernizr_.js' %}"></script>
@@ -18,7 +19,12 @@
 
 {% block body %}
 
-    <div id="feed"></div>
-
+    <div class="row">
+        <div class="col-xs-3">
+        </div>
+        <div class="col-xs-9">
+            <div id="feed"></div>
+        </div>
+    </div>
 
 {% endblock body %}
