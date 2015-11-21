@@ -8,7 +8,6 @@ $(document).ready(function() {
                 $('#messages').html(html);
             },
             error: function() {
-                alert('error!');
             },
         });
     }, 1000);
@@ -29,9 +28,20 @@ $(document).ready(function() {
                 $('#input').val('');
             },
             error: function(xhr, errmsg, err) {
-                console.log(err);
-                alert('error');
             }
         });
+    });
+
+    var open = false;
+    $('#chat-trigger-wrapper').click(function() {
+        if (open) {
+            $("#chat-wrapper").animate({height: 0});
+            $("#chat-trigger-wrapper").animate({bottom: "20px"});
+            open = false;
+        } else {
+            $("#chat-wrapper").animate({height: "500px"});
+            $("#chat-trigger-wrapper").animate({bottom: "550px"});
+            open = true;
+        }
     });
 });

@@ -1,7 +1,25 @@
 {% for msg in messages %}
 <div class="row">
-    <div class="col-xs-12">
-        {{ msg.text }}
-    </div>
+    {% if msg.author == user.get_username %}
+        <div class="chat-left text-left">
+            <div class="col-xs-12">
+                <span class="chat-author">{{ msg.author }}</span>
+                <span class="chat-time">{{ msg.time }}</span>
+            </div>
+            <div class="col-xs-12">
+                <span class="chat-text">{{ msg.text }}</span>
+            </div>
+        </div>
+    {% else %}
+        <div class="chat-right text-right">
+            <div class="col-xs-12">
+                <span class="chat-author">{{ msg.author }}</span>
+                <span class="chat-time">{{ msg.time }}</span>
+            </div>
+            <div class="col-xs-12">
+                <span class="chat-text">{{ msg.text }}</span>
+            </div>
+        </div>
+    {% endif %}
 </div>
 {% endfor %}

@@ -8,7 +8,6 @@ def messages(request):
     if request.method == 'GET':
         msgs = Message.objects.all()
         context = {'messages': msgs}
-        # print(context['messages'][0].text)
         return render(request, 'chat/_messages.html', context)
 
     if request.method == 'POST':
