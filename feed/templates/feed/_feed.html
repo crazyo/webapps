@@ -1,20 +1,22 @@
 {% load staticfiles %}
 
-<header>
-    <h1>RBC Wealth Management</h1>
-</header>
-
 <section id="cd-timeline" class="cd-container">
 {% for activity in activities %}
     <div class="cd-timeline-block">
         <div class="cd-timeline-img cd-picture">
-            <img src="{% static 'feed/imgs/cd-icon-picture.svg' %}">
+            <img src="{% static 'feed/imgs/icon.png' %}">
         </div>
 
         <div class="cd-timeline-content">
             <h2>{{ activity.initiator }}</h2>
             <p>{{ activity.text }}</p>
-            <a href="#" class="cd-read-more">comment</a>
+            <form>
+                {% csrf_token %}
+                <div class="form-group">
+                    <textarea rows="1" maxlength="200" class="form-control" id="text" placeholder="Any thought on this, Mr. Ross?"></textarea>
+                </div>
+                <button type="button" class="btn btn-primary" id="submit">submit</button>
+            </form>
             <span class="cd-date">{{ activity.date }}</span>
         </div>
     </div>
