@@ -14,14 +14,14 @@ html * {
   box-sizing: border-box;
 }
 
-body {
+#feed {
   font-size: 100%;
   font-family: "Droid Serif", serif;
   color: #7f8c97;
   background-color: #e9f0f5;
 }
 
-a {
+#feed a {
   color: #acb7c0;
   text-decoration: none;
   font-family: "Open Sans", sans-serif;
