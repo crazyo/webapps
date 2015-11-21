@@ -25,6 +25,7 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div class="flot-chart">
+                                <div id="donutchart"  class="flot-chart-content""></div>
 
                                 <div class="flot-chart-content" id="flot-pie-chart"></div>
                             </div>
@@ -77,47 +78,9 @@
     <script src="{% static "common/bower_components/flot/jquery.flot.resize.js" %}"></script>
     <script src="{% static "common/bower_components/flot/jquery.flot.time.js" %}"></script>
     <script src="{% static "common/bower_components/flot.tooltip/js/jquery.flot.tooltip.min.js" %}" ></script>
-    <script src="{% static "common/js/flot-data.js" %}" ></script>
-    <script type="text/javascript">
-            $(function() {
-                $(function() {
 
-            var data = [{
-                label: "Fixed Income",
-                data: 1
-            }, {
-                label: "Stocks",
-                data: 3
-            }, {
-                label: "Cash and Cash Equivalents",
-                data: 9
-            }, {
-                label: "Alternative Investments",
-                data: 20
-            }];
 
-            var plotObj = $.plot($("#flot-pie-chart"), data, {
-                series: {
-                    pie: {
-                        show: true
-                    }
-                },
-                grid: {
-                    hoverable: true
-                },
-                tooltip: true,
-                tooltipOpts: {
-                    content: "%p.0%, %s", // show percentages, rounding to 2 decimal places
-                    shifts: {
-                        x: 20,
-                        y: 0
-                    },
-                    defaultTheme: false
-                }
-            });
 
-        });
-    </script>
 
 
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
@@ -139,6 +102,25 @@
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        chart.draw(data, options);
+      }
+    </script>
+
+
+
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable({{ top_data|safe }});
+
+        var options = {
+          title: 'Total Portfolio Fund',
+          pieHole: 0.4,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
         chart.draw(data, options);
       }
     </script>
