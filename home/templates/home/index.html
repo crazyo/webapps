@@ -10,10 +10,14 @@
 
 {% block myscript %}
 <script src="{% static 'feed/js/_main_.js' %}"></script>
+<script src="{% static 'feed/js/feed.js' %}"></script>
+<script>
+    loadActivities();
+</script>
 {% endblock myscript %}
 
 {% block body %}
 
-    {% include 'feed/_feed.html' %}
+    <div id="feed"></div>
 
 {% endblock body %}
