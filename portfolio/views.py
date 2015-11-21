@@ -1,11 +1,20 @@
 from django.shortcuts import render
 
 from .models import *
-
+from django.db.models import Sum
 
 def portfolio(request):
+    dict = []
+    dict.append(["Total", "Revenue"])
+    topCategory = TopCategory.objects.all()
+    for ele in topCategory:
+        dict.append([ele.name, float(SubCategory.objects.filter(top_category=ele).aggregate(Sum('revenue'))['revenue__sum'])])
 
-    return render(request, 'portfolio/_chart.html', {})
+
+    data = get_sub_chart("Fixed Income")
+
+    context = {"top_data":dict, 'fixed_income': data}
+    return render(request, 'portfolio/_chart.html', context)
 
 
 
@@ -39,13 +48,14 @@ def stock(request):
 
 def alternative(request):
 
-    data = get_sub_chart("Derivatives")
-    context = {'derivatives': data}
+    data = get_sub_chart("Alternative")
+    context = {'alternative': data}
     return render(request, 'portfolio/_chart.html', context)
+
 
 
 def cash(request):
 
     data = get_sub_chart("Cash and Cash Eq")
-    context = {'cache': data}
+    context = {'cash': data}
     return render(request, 'portfolio/_chart.html', context)
