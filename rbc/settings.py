@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'home',
     'feed',
     'portfolio',
+    'chat',
 )
 
 MIDDLEWARE_CLASSES = (
