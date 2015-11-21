@@ -3,10 +3,11 @@
 
 {% block mystyle %}
 {# keep this order! #}
-<link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+<!-- <link rel="stylesheet" href="{% static 'home/css/home.css' %}"> -->
 <link rel="stylesheet" href="{% static 'feed/css/_reset_.css' %}">
 <link rel="stylesheet" href="{% static 'feed/css/_style_.css' %}">
 <script src="{% static 'feed/js/_modernizr_.js' %}"></script>
+<link rel="stylesheet" href="{% static 'chat/css/chat.css' %}">
 {% endblock mystyle %}
 
 {% block myscript %}
@@ -15,6 +16,7 @@
 <script>
     loadActivities();
 </script>
+<script src="{% static 'chat/js/chat.js' %}"></script>
 {% endblock myscript %}
 
 {% block body %}
@@ -26,5 +28,7 @@
             <div id="feed"></div>
         </div>
     </div>
+
+    {% include 'chat/_chat.html' %}
 
 {% endblock body %}
