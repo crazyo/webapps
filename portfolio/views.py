@@ -24,8 +24,24 @@ def portfolio(request):
     return render(request, 'portfolio/_chart.html', context)
 
 
-def get_sub_chart(category):
-    dict =[]
+def comparasion(request):
+    dict = []
+    dict.append(["Total", "Revenue"])
+    topCategory = TopCategory.objects.all()
+    for ele in topCategory:
+        dict.append([ele.name, float(SubCategory.objects.filter(top_category=ele).aggregate(Sum('revenue'))['revenue__sum'])])
+
+
+    data = get_sub_chart("Fixed Income")
+
+    context = {"top_data":dict, 'fixed_income': data}
+    return render(request, 'portfolio/_comparasion.html', context)
+
+
+def get_sub_chart(request):
+    index = int(request.GET.get('index'))
+    category = current_sections[index]
+    dict = []
     title = [category, 'Revenue']
     dict.append(title)
     topCategory = TopCategory.objects.get(name=category)
