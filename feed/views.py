@@ -15,7 +15,7 @@ def feed(request):
             if count:
                 dates.sort()
                 trimmed.append({'initiator': ','.join(initiators),
-                                'text': str(count) + ' trivial activities...',
+                                'text': str(count) + ' activities...',
                                 'date': dates[-1]})
                 count = 0
                 initiators = []

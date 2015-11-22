@@ -22,6 +22,7 @@ function startListeningEvents() {
 
             success: function(html){
                 $("#cd-timeline").html(html);
+                startTimelineAnimation();
             },
         });
     });
