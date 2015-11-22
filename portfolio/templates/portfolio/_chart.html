@@ -69,6 +69,7 @@
 
 
 {% block myscript %}
+    <script src='{% static 'portfolio/js/chart.js' %}'></script>
 
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <!-- Flot Charts JavaScript -->
@@ -85,25 +86,27 @@
 
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
-      google.load("visualization", "1", {packages:["corechart"]});
-      google.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable({{ fixed_income|safe}});
+     function drawSecondaryChart(fromServer) {
+        google.load("visualization", "1", {packages:["corechart"]});
+        function drawChart() {
+          var data = google.visualization.arrayToDataTable(fromServer.data);
 
-        var options = {
-          title: 'Fixed Income',
-          legend: 'none',
-          pieSliceText: 'label',
-          slices: {  4: {offset: 0.2},
-                    12: {offset: 0.3},
-                    14: {offset: 0.4},
-                    15: {offset: 0.5},
-          },
-        };
+          var options = {
+            title: fromServer.title,
+            legend: 'none',
+            pieSliceText: 'label',
+            slices: {  4: {offset: 0.2},
+                      12: {offset: 0.3},
+                      14: {offset: 0.4},
+                      15: {offset: 0.5},
+            },
+          };
 
-        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-        chart.draw(data, options);
-      }
+          var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+          chart.draw(data, options);
+        }
+        drawChart();
+     }
     </script>
 
 
@@ -121,10 +124,35 @@
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+
+
+function selectHandler() {
+    var selectedItem = chart.getSelection()[0];
+    if (selectedItem) {
+     var index = selectedItem.row;
+
+     $.ajax({
+         url: '/portfolio/secondary_chart/',
+         type: 'GET',
+         data: {index: index},
+
+         success: function(json) {
+            drawSecondaryChart(json);
+         },
+         error: function(xhr, errmsg, err) {
+         }
+     });
+
+
+    }
+  }
+
+  google.visualization.events.addListener(chart, 'select', selectHandler);
+
+
         chart.draw(data, options);
       }
     </script>
-
 
 {% endblock myscript %}
 
