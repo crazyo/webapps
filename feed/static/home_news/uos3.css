@@ -1,0 +1,106 @@
+/*******************************************************/
+/* General
+/*******************************************************/
+html,body{height:100%;}
+
+#globalheader{position:relative;z-index:3}
+#layout-column-right{overflow:visible}
+#layout-column-left{overflow:visible}
+.callout{overflow:visible;}
+
+
+/*******************************************************/
+/* Carousel
+/*******************************************************/
+.rbc-carousel-container{position:relative;padding:0 30px 0px 25px;}
+.rbc-carousel-container-content{overflow:hidden;width:430px !important}
+.rbc-carousel-container ul{}
+.rbc-carousel-container ul li{background:none;padding:0}
+.rbc-carousel-next {display:block;cursor: pointer;position: absolute; width:18px;height:32px;top:45px;left:500px;_left:473px; background-image: url(carouselnav-right.gif);background-position:0 0;z-index:100;text-indent:-9999px;outline:none;zoom:1}
+.rbc-carousel-next:hover, .rbc-carousel-next:focus{background-position:100% 0;background-color:transparent !important}
+.rbc-carousel-next:active{background-color:transparent !important}
+.rbc-carousel-next.disabled{display:none;}
+.rbc-carousel-prev {display:block;cursor: pointer;position: absolute; width:18px;height:32px;top:45px;left: 0px;_left:-30px; background-image: url(carouselnav-left.gif);background-position:0 0;z-index:100;text-indent:-9999px;outline:none;zoom:1}
+.rbc-carousel-prev:hover, .rbc-carousel-prev:focus{background-position:100% 0;background-color:transparent !important}
+.rbc-carousel-prev:active{background-color:transparent !important}
+.rbc-carousel-prev.disabled{display:none;}
+
+.rbc-carouselbutton{width:80px;background:#fff;text-align:center;border:1px solid #c3cce0;padding:10px 9px;-moz-border-radius: 5px;-webkit-border-radius: 5px;border-radius:5px;font-size:.915em;margin:0 19px 0 0}
+.rbc-carouselbutton-highlight{background: #fff url(carouselbutton-highlight.gif) top right no-repeat;}
+.rbc-carouselbutton img{margin:0 0 5px 0;}
+.callout.rbc-carousel h2{margin:5px 0 5px 30px !important;padding:0 !important}
+.rbc-carouselbutton a:hover{background-color:transparent !important}
+.rbc-carouselbutton a{text-decoration:none;}
+.rbc-carouselbutton a span{text-decoration:underline}
+
+/*******************************************************/
+/* Overlay
+/*******************************************************/
+.rbc-overlay-trigger-container{position:relative;z-index:5;}
+
+.rbc-overlay-trigger{position:relative}
+.rbc-triggericon{vertical-align:middle;}
+
+.rbc-overlay{display:none;position:absolute;top:18px;left:0;padding:8px 12px 8px 12px;width: 300px;border: 1px solid #9fb0d5;background: #fff url(gradient-lightblue-bg.gif) bottom left repeat-x;-moz-border-radius: 4px;-webkit-border-radius: 4px;border-radius:4px;-webkit-box-shadow: #dce2f0 0px 1px 3px;-moz-box-shadow: #dce2f0 0px 1px 3px;box-shadow: #dce2f0 0px 1px 3px;z-index:3;}
+.rbc-overlay-trigger-container.active{z-index:2}
+.rbc-overlay.rbc-overlay-help{background: #fff url(../images/overlays/gradient-yellow-bg.gif) bottom left repeat-x;border:1px solid #fedf01;}
+
+.rbc-opencloseidentifier{display:none;}
+
+/* Close buttons */
+a.rbc-overlay-close{display:block;position:absolute;top:10px;right:10px;width:13px;height:13px;background: url(icon-collapse.gif) 0 0 no-repeat;text-indent:-9999px;outline:none;}
+a.rbc-overlay-close-hidden{position:absolute;bottom:10px;right:10px;width:1px;overflow:hidden;color:#fff}
+a.rbc-overlay-close-hidden:focus, a.rbc-overlay-close-hidden:active{width:13px;height:13px;background: url(icon-collapse.gif) 0 0 no-repeat;text-indent:-9999px;outline:none;overflow:auto}
+a.rbc-overlay-close:focus{}
+
+/* Tab overlay in place*/
+.rbc-overlay-taboverlayinplace .rbc-overlay{}
+.rbc-overlay-taboverlayinplace .rbc-overlay .rbc-overlay-trigger{display:block;border:1px solid #9fb0d5;background:#fff;padding:8px 12px 8px 12px;-moz-border-radius-topleft: 4px;border-top-left-radius:4px;-moz-border-radius-topright: 4px;border-top-right-radius:4px;border-bottom:none;position:absolute;top:-35px;left:-1px;}
+.rbc-overlay-taboverlayinplace .rbc-overlay{border-top-left-radius:0px;-moz-border-radius-topleft:0px;}
+
+/* Dropdown */
+.rbc-dropdown a.rbc-overlay-trigger{border: 1px solid #9fb0d5;background: #fff url(gradient-lightblue-bg.gif) bottom left repeat-x;padding:3px 8px 3px 8px;_padding:5px 8px 5px 8px;z-index:2;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius:3px;-webkit-box-shadow: #dce2f0 0px 0px 2px;-moz-box-shadow: #dce2f0 0px 0px 2px;box-shadow: #dce2f0 0px 0px 2px;color:#002888;text-decoration:none;position:relative;vertical-align:top;font-size:.846em}
+.rbc-dropdown a.rbc-overlay-trigger{display: -moz-inline-box;display: inline-block;}
+* html .rbc-dropdown a.rbc-overlay-trigger{display:inline;}
+* + html .rbc-dropdown a.rbc-overlay-trigger{display:inline;}
+.rbc-dropdown a.rbc-overlay-trigger .rbc-triggericon{position:absolute;right:7px;top:6px}
+.rbc-dropdown a.rbc-overlay-trigger span{text-decoration:none;}
+.rbc-overlay-trigger-container.rbc-dropdown.active .rbc-overlay-trigger{border-bottom-right-radius:0px;-moz-border-radius-bottomright:0px;border-bottom-left-radius:0px;-moz-border-radius-bottomleft:0px;border-bottom:1px solid #fff;z-index:999;background:#fff;-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none}
+.rbc-overlay-trigger-container.rbc-dropdown .rbc-overlay{border-top-left-radius:0px;-moz-border-radius-topleft:0px;border-top-right-radius:0px;-moz-border-radius-topright:0px;}
+
+/* General overlay styling */
+.rbc-overlay-content, .rbc-overlay-content td, .rbc-overlay-content th, .rbc-overlay-content input, .rbc-overlay-content select{font-size:11px;line-height:1.4em}
+.rbc-overlay h2{margin:0 0 10px 0; font-size: 15px;}
+.rbc-overlay h3{margin:0 0 10px 0}
+ul.bullets-menu{margin:0 -12px 0 -12px;padding:0;}
+ul.bullets-menu li{padding:0;margin:0;background:none}
+ul.bullets-menu li a{display:block;width:136px;padding:2px 12px 2px 20px;background: url(bullet-childpage.gif) 12px .65em no-repeat;}
+ul.bullets-menu li a:hover, ul.bullets-menu li a:active, ul.bullets-menu li a:focus{background: #e5ebf2 url(bullet-childpage.gif) 12px .65em no-repeat;}
+
+
+
+/*******************************************************/
+/* Modal Window
+/*******************************************************/
+.rbc-modalwindow-mask{position: fixed;top:0;left:0;width:100%;height:100%;background-color: black;z-index:1001;-moz-opacity: 0.5;opacity:.50;filter: alpha(opacity=50);}
+* html .rbc-modalwindow-mask{position:absolute;height: expression(document.body.scrollHeight > document.body.offsetHeight ? document.body.scrollHeight : document.body.offsetHeight + 'px');}
+
+.rbc-modalwindow{}
+
+.rbc-modalwindow {display:none;position:fixed; top:0; left:0; width:100%; height:100%; z-index:1003}
+.rbc-modalwindow-middle {height:100%; display:table; margin:0 auto; }
+.rbc-modalwindow-inner {vertical-align:middle; display:table-cell; }
+.rbc-modalwindow-inner2{border: 1px solid #9fb0d5;background: #fff url(gradient-lightblue-bg.gif) bottom left repeat-x;-moz-border-radius: 4px;-webkit-border-radius: 4px;border-radius:4px; ;-webkit-box-shadow: #dce2f0 0px 1px 3px;-moz-box-shadow: #dce2f0 0px 1px 3px;box-shadow: #dce2f0 0px 1px 3px;position:relative;padding:25px 0 30px 0}
+.rbc-modalwindow-content{overflow:auto;height:100%;padding:0px 20px 8px 20px;zoom:1}
+a.rbc-modalwindow-close{display:block;position:absolute;top:-10px;right:-6px;width:28px;height:28px;background: url(icon-collapse-withborder-large.png) 0 0 no-repeat;text-indent:-9999px;outline:none;}
+a.rbc-modalwindow-close:focus, a.rbc-modalwindow-close:hover, a.rbc-modalwindow-close:active{background-color:transparent !important;outline:none}
+
+a.rbc-modalwindow-close-hidden{position:absolute;bottom:10px;right:10px;width:1px;overflow:hidden;color:#fff}
+a.rbc-modalwindow-close-hidden:focus, a.rbc-overlay-close-hidden:active{width:15px;height:15px;background: url(images/icon-collapse-withborder.gif) 0 0 no-repeat;text-indent:-9999px;outline:none;;overflow:auto}
+
+.rbc-slideshow-index{text-align:center;font-size:.846em;margin:10px 0 0 0}
+
+
+
+ul.bullets-miniarrow {margin:0 0 1.5em 0;padding:0}
+ul.bullets-miniarrow li{background: url(bullet-childpage.gif) 0 .65em no-repeat;padding-left:10px;}
