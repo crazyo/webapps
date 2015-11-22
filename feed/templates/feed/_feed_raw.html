@@ -1,7 +1,5 @@
 {% load staticfiles %}
 {% load humanize %}
-
-<section id="cd-timeline" class="cd-container">
 {% for activity in activities %}
     <div class="cd-timeline-block {% if activity.is_important %}urgent{% endif %}">
         <div class="cd-timeline-img cd-picture {% if activity.is_important %}urgent{% endif %}">
@@ -10,8 +8,7 @@
 
         <div class="cd-timeline-content">
             <h2>{{ activity.initiator }}</h2>
-            <p class="{% if not activity.is_important %}expand-activities{% endif %}">{{ activity.text }}</p>
-            {% if activity.is_important %}
+            <p>{{ activity.text }}</p>
             <form>
                 {% csrf_token %}
                 <div class="form-group">
@@ -19,9 +16,7 @@
                 </div>
                 <button type="button" class="btn btn-primary" id="submit">submit</button>
             </form>
-            {% endif %}
-            <span class="cd-date">{{ activity.date|naturaltime }}</span>
+            <span class="cd-date">{{ activity.date }}</span>
         </div>
     </div>
 {% endfor %}
-</section>

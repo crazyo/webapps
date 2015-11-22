@@ -155,13 +155,22 @@ header h1 {
   margin-top: -12px;
 }
 .cd-timeline-img.cd-picture {
-  background: white;
+  background: #006dcc;
 }
 .cd-timeline-img.cd-movie {
-  background: white;
+  background: #006dcc;
 }
 .cd-timeline-img.cd-location {
-  background: white;
+  background: #006dcc;
+}
+.cd-timeline-img.cd-picture.urgent {
+  background: red;
+}
+.cd-timeline-img.cd-movie.urgent {
+  background: red;
+}
+.cd-timeline-img.cd-location {
+  background: red;
 }
 @media only screen and (min-width: 1170px) {
   .cd-timeline-img {
@@ -268,6 +277,10 @@ header h1 {
   margin: 1em 0;
   line-height: 1.6;
 }
+.cd-timeline-content p.expand-activities {
+  cursor: pointer;
+  text-decoration: underline;
+}
 .cd-timeline-content .cd-read-more {
   float: right;
   padding: .8em 1em;
@@ -330,20 +343,20 @@ header h1 {
     font-size: 16px;
     font-size: 1rem;
   }
-  .cd-timeline-block:nth-child(even) .cd-timeline-content {
+  .cd-timeline-block.urgent .cd-timeline-content {
     float: right;
   }
-  .cd-timeline-block:nth-child(even) .cd-timeline-content::before {
+  .cd-timeline-block.urgent .cd-timeline-content::before {
     top: 24px;
     left: auto;
     right: 100%;
     border-color: transparent;
     border-right-color: white;
   }
-  .cd-timeline-block:nth-child(even) .cd-timeline-content .cd-read-more {
+  .cd-timeline-block.urgent .cd-timeline-content .cd-read-more {
     float: right;
   }
-  .cd-timeline-block:nth-child(even) .cd-timeline-content .cd-date {
+  .cd-timeline-block.urgent .cd-timeline-content .cd-date {
     left: auto;
     right: 122%;
     text-align: right;
