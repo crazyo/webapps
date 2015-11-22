@@ -81,8 +81,6 @@
 
 
 
-
-
     <script type="text/javascript">
      function drawSecondaryChart(fromServer) {
         google.load("visualization", "1", {packages:["corechart"]});
@@ -91,8 +89,7 @@
 
           var options = {
             title: fromServer.title,
-            legend: 'none',
-            pieSliceText: 'label',
+            is3D: true,
             slices: {  4: {offset: 0.2},
                       12: {offset: 0.3},
                       14: {offset: 0.4},
