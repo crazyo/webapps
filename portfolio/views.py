@@ -24,12 +24,8 @@ def portfolio(request):
     return render(request, 'portfolio/_chart.html', context)
 
 
-
-
-def get_sub_chart(request):
-    index = int(request.GET.get('index'))
-    category = current_sections[index]
-    dict = []
+def get_sub_chart(category):
+    dict =[]
     title = [category, 'Revenue']
     dict.append(title)
     topCategory = TopCategory.objects.get(name=category)
